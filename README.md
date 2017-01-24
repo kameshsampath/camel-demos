@@ -22,5 +22,5 @@ For more help see the Apache Camel documentation
 
 [av-image]: https://ci.appveyor.com/api/projects/status/yo15u8vxrk4deas0/branch/master?svg=true
 [av-site]: https://ci.appveyor.com/project/kameshsampath/camel-demos
-[cr-image]: https://circleci.com/gh/kameshsampath/camel-demos.svg?style=svg
+[cr-image]: https://circleci.com/gh/kameshsampath/camel-demos.svg?style=shield
 [cr-site]: https://circleci.com/gh/kameshsampath/camel-demos
