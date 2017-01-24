@@ -31,5 +31,5 @@ install:
 test_script:
   -
     ps: "mvn clean install"
-version: 1.0-SNAPSHOT
+version: 1.0-SNAPSHOT.{build}
 
