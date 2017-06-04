@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>camel-circuitbreaker-demo</artifactId>
+    <groupId>org.workspace7.camel</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>camel-greeter-client</artifactId>
+  <name>Camel:: Greeter Route:: Client</name>
+  <description>A simple java client</description>
+
+  <properties>
+    <version.exec.plugin>1.4.0</version.exec.plugin>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <netflix.feign.version>8.15.1</netflix.feign.version>
+    <hystrix.version>1.5.1</hystrix.version>
+    <java.main.class>org.workspace7.camel.greeter.client.Main</java.main.class>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.netflix.feign</groupId>
+      <artifactId>feign-core</artifactId>
+      <version>${netflix.feign.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.feign</groupId>
+      <artifactId>feign-hystrix</artifactId>
+      <version>${netflix.feign.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>greeter-client</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>${java.main.class}</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

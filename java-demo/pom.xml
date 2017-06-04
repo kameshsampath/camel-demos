@@ -87,8 +87,6 @@
   </dependencyManagement>
 
   <dependencies>
-
-  <dependencies>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
@@ -129,18 +127,37 @@
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.fabric8</groupId>
+      <artifactId>agent-bond-agent</artifactId>
+      <version>1.0.3-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>
     <defaultGoal>install</defaultGoal>
 
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>getClasspathFilenames</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <!-- Allows the example to be run via 'mvn compile exec:java' -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>${exec-maven-plugin.version}</version>
         <configuration>
+          <executable>java</executable>
           <mainClass>org.workspace7.camel.MainApp</mainClass>
           <includePluginDependencies>false</includePluginDependencies>
         </configuration>

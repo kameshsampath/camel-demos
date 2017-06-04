@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restrict>
+    <remote>
+        <host>127.0.0.1</host>
+    </remote>
+
+    <http>
+        <method>get</method>
+    </http>
+
+    <commands>
+        <command>read</command>
+        <command>list</command>
+        <command>VERSION</command>
+    </commands>
+
+    <!-- Some Mbeans which you wish to allow access with the commands for specific operations-->
+    <allow>
+        <mbean>
+            <name>java.lang:type=Memory</name>
+            <operation>gc</operation>
+        </mbean>
+    </allow>
+
+    <!-- Some Mbeans which you wish not to allow accessing attribute properties -->
+    <deny>
+        <mbean>
+            <name>com.mchange.v2.c3p0:type=PooledDataSource,*</name>
+            <attribute>properties</attribute>
+        </mbean>
+    </deny>
+
+</restrict>

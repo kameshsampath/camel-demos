@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.workspace7.camel</groupId>
+  <artifactId>camel-circuitbreaker-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Camel:: Circuit Breaker:: Demo</name>
+  <description>A camel demo project to demonstrate circuit breaker integration with Camel</description>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <jboss.fuse.bom.version>6.3.0.redhat-269</jboss.fuse.bom.version>
+    <hystrix.version>1.5.1</hystrix.version>
+    <vertx.projectVersion>3.4.1</vertx.projectVersion>
+
+    <!-- maven plugins-->
+
+    <version.fabric8-vertx-maven-plugin>1.0.8</version.fabric8-vertx-maven-plugin>
+    <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
+
+  </properties>
+
+  <modules>
+    <module>simple-greeter</module>
+    <module>camel-greeter-route</module>
+    <module>camel-greeter-client</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.fuse.bom</groupId>
+        <artifactId>jboss-fuse-parent</artifactId>
+        <version>${jboss.fuse.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-dependencies</artifactId>
+        <version>${vertx.projectVersion}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.16.16</version>
+        <optional>true</optional>
+        <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.1.7</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+</project>
